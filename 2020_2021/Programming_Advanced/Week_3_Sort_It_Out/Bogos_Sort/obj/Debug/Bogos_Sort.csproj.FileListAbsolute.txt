@@ -1,0 +1,7 @@
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_3_Sort_It_Out\Bogos_Sort\bin\Debug\Bogos_Sort.exe.config
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_3_Sort_It_Out\Bogos_Sort\bin\Debug\Bogos_Sort.exe
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_3_Sort_It_Out\Bogos_Sort\bin\Debug\Bogos_Sort.pdb
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_3_Sort_It_Out\Bogos_Sort\obj\Debug\Bogos_Sort.csprojAssemblyReference.cache
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_3_Sort_It_Out\Bogos_Sort\obj\Debug\Bogos_Sort.csproj.CoreCompileInputs.cache
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_3_Sort_It_Out\Bogos_Sort\obj\Debug\Bogos_Sort.exe
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_3_Sort_It_Out\Bogos_Sort\obj\Debug\Bogos_Sort.pdb

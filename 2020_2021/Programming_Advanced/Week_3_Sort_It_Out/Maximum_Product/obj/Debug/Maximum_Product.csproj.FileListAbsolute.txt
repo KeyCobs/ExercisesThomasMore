@@ -1,0 +1,7 @@
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_3_Sort_It_Out\Maximum_Product\bin\Debug\Maximum_Product.exe.config
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_3_Sort_It_Out\Maximum_Product\bin\Debug\Maximum_Product.exe
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_3_Sort_It_Out\Maximum_Product\bin\Debug\Maximum_Product.pdb
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_3_Sort_It_Out\Maximum_Product\obj\Debug\Maximum_Product.csprojAssemblyReference.cache
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_3_Sort_It_Out\Maximum_Product\obj\Debug\Maximum_Product.csproj.CoreCompileInputs.cache
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_3_Sort_It_Out\Maximum_Product\obj\Debug\Maximum_Product.exe
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_3_Sort_It_Out\Maximum_Product\obj\Debug\Maximum_Product.pdb

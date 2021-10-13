@@ -1,0 +1,7 @@
+D:\Documenten\School\2020-2021\Programming_Advanced\Jacobs_Kevin_2IMSB_Find_The_X\Find_the_X\Find_the_X\obj\Debug\Find_the_X.csprojAssemblyReference.cache
+D:\Documenten\School\2020-2021\Programming_Advanced\Jacobs_Kevin_2IMSB_Find_The_X\Find_the_X\Find_the_X\obj\Debug\Find_the_X.csproj.CoreCompileInputs.cache
+D:\Documenten\School\2020-2021\Programming_Advanced\Jacobs_Kevin_2IMSB_Find_The_X\Find_the_X\Find_the_X\bin\Debug\Find_the_X.exe.config
+D:\Documenten\School\2020-2021\Programming_Advanced\Jacobs_Kevin_2IMSB_Find_The_X\Find_the_X\Find_the_X\bin\Debug\Find_the_X.exe
+D:\Documenten\School\2020-2021\Programming_Advanced\Jacobs_Kevin_2IMSB_Find_The_X\Find_the_X\Find_the_X\bin\Debug\Find_the_X.pdb
+D:\Documenten\School\2020-2021\Programming_Advanced\Jacobs_Kevin_2IMSB_Find_The_X\Find_the_X\Find_the_X\obj\Debug\Find_the_X.exe
+D:\Documenten\School\2020-2021\Programming_Advanced\Jacobs_Kevin_2IMSB_Find_The_X\Find_the_X\Find_the_X\obj\Debug\Find_the_X.pdb

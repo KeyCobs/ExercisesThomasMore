@@ -1,0 +1,6 @@
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_4_Recursion\Reverse_Insertion_Sort\bin\Debug\Reverse_Insertion_Sort.exe.config
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_4_Recursion\Reverse_Insertion_Sort\bin\Debug\Reverse_Insertion_Sort.exe
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_4_Recursion\Reverse_Insertion_Sort\bin\Debug\Reverse_Insertion_Sort.pdb
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_4_Recursion\Reverse_Insertion_Sort\obj\Debug\Reverse_Insertion_Sort.csproj.CoreCompileInputs.cache
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_4_Recursion\Reverse_Insertion_Sort\obj\Debug\Reverse_Insertion_Sort.exe
+D:\Documenten\School\2020-2021\Programming_Advanced\Week_4_Recursion\Reverse_Insertion_Sort\obj\Debug\Reverse_Insertion_Sort.pdb

@@ -1,0 +1,17 @@
+Record_id,Product_id,Store_id,Product Name,buy price,sell price,amount sold,in stock,Profit
+1,1,1,Chocolate,0.5,4,10,40,20
+1,2,1,toy airplane,5,20,6,10,70
+1,3,2,wine,20,80,5,10,200
+1,4,2,pen,0.1,2,0,100,-10
+2,5,3,teddy bear,1,10,45,100,350
+2,6,3,watch,40,140,4,5,360
+2,7,4,book,5,20,33,40,460
+2,8,4,movie,5,10,47,50,220
+3,9,5,neck pillow,2,10,61,70,470
+3,10,5,parfum,20,90,3,5,170
+3,11,6,globe,10,20,14,30,-20
+3,12,6,rubber duck,3,5,36,50,30
+3,13,7,glass,10,30,22,30,360
+3,14,7,ring,70,150,2,2,160
+1,15,2,necklace,100,270,1,1,170
+2,16,4,sun glacces,60,120,9,20,-120

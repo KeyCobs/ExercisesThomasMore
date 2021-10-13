@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Documenten\\School\\2020-2021\\Programming_Advanced\\Jacobs_Kevin_2IMSB_Big_Brother\\Jacobs_Kevin_2IMSB_Big_Brother\\Jacobs_Kevin_2IMSB_Big_Brother.csproj": {}
+  },
+  "projects": {
+    "D:\\Documenten\\School\\2020-2021\\Programming_Advanced\\Jacobs_Kevin_2IMSB_Big_Brother\\Jacobs_Kevin_2IMSB_Big_Brother\\Jacobs_Kevin_2IMSB_Big_Brother.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Documenten\\School\\2020-2021\\Programming_Advanced\\Jacobs_Kevin_2IMSB_Big_Brother\\Jacobs_Kevin_2IMSB_Big_Brother\\Jacobs_Kevin_2IMSB_Big_Brother.csproj",
+        "projectName": "Jacobs_Kevin_2IMSB_Big_Brother",
+        "projectPath": "D:\\Documenten\\School\\2020-2021\\Programming_Advanced\\Jacobs_Kevin_2IMSB_Big_Brother\\Jacobs_Kevin_2IMSB_Big_Brother\\Jacobs_Kevin_2IMSB_Big_Brother.csproj",
+        "packagesPath": "C:\\Users\\Kevin\\.nuget\\packages\\",
+        "outputPath": "D:\\Documenten\\School\\2020-2021\\Programming_Advanced\\Jacobs_Kevin_2IMSB_Big_Brother\\Jacobs_Kevin_2IMSB_Big_Brother\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "TM.ProgrammingAdvanced": {
+              "target": "Package",
+              "version": "[1.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

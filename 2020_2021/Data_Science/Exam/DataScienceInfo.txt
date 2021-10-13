@@ -1,0 +1,10 @@
+Assignments:
+
+Supervised Leanring
+We know the variable we want to predict
+	Regression analysis (continues: Score,...) int
+	Classification Analysis (Male female,cat dog) string©R
+
+Unsupervised Learning
+	Classification
+	

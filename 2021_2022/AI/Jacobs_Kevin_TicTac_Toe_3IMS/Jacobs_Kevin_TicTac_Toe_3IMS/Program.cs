@@ -77,36 +77,41 @@ namespace Jacobs_Kevin_TicTac_Toe_3IMS
             switch (k)
             {
                 case ConsoleKey.D1:
-                  
+                    gs.Update(1);
                     break;
                  case ConsoleKey.D2:
-                  
+                    gs.Update(2);
                     break;
                  case ConsoleKey.D3:
-                  
+                    gs.Update(3);
                     break;
                  case ConsoleKey.D4:
-                  
+                    gs.Update(4);
                     break;
                  case ConsoleKey.D5:
-                  
+                    gs.Update(5);
                     break;
                  case ConsoleKey.D6:
-                  
+                    gs.Update(6);
                     break;
                  case ConsoleKey.D7:
-                  
+                    gs.Update(7);
                     break;
                  case ConsoleKey.D8:
-                  
+                    gs.Update(8);
                     break;
                  case ConsoleKey.D9:
-                  
+                    gs.Update(9);
                     break;
                 case ConsoleKey.M:
-
+                    gs.m_CurrentState = GameState.Menue;
+                    gs.m_IsPicked = false;
+                    break;
+                case ConsoleKey.Escape:
+                    gs.m_CurrentState = GameState.Exit;
                     break;
 
+                    
                 default:
                     break;
             }

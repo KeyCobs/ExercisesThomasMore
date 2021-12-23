@@ -1,0 +1,16 @@
+D:\Documenten\School\Github\ExercisesThomasMore\2019_2020\06_2D_Arrays\2DArrays\2DArrays\bin\Debug\net5.0\2DArrays.exe
+D:\Documenten\School\Github\ExercisesThomasMore\2019_2020\06_2D_Arrays\2DArrays\2DArrays\bin\Debug\net5.0\2DArrays.deps.json
+D:\Documenten\School\Github\ExercisesThomasMore\2019_2020\06_2D_Arrays\2DArrays\2DArrays\bin\Debug\net5.0\2DArrays.runtimeconfig.json
+D:\Documenten\School\Github\ExercisesThomasMore\2019_2020\06_2D_Arrays\2DArrays\2DArrays\bin\Debug\net5.0\2DArrays.runtimeconfig.dev.json
+D:\Documenten\School\Github\ExercisesThomasMore\2019_2020\06_2D_Arrays\2DArrays\2DArrays\bin\Debug\net5.0\2DArrays.dll
+D:\Documenten\School\Github\ExercisesThomasMore\2019_2020\06_2D_Arrays\2DArrays\2DArrays\bin\Debug\net5.0\ref\2DArrays.dll
+D:\Documenten\School\Github\ExercisesThomasMore\2019_2020\06_2D_Arrays\2DArrays\2DArrays\bin\Debug\net5.0\2DArrays.pdb
+D:\Documenten\School\Github\ExercisesThomasMore\2019_2020\06_2D_Arrays\2DArrays\2DArrays\obj\Debug\net5.0\2DArrays.csproj.AssemblyReference.cache
+D:\Documenten\School\Github\ExercisesThomasMore\2019_2020\06_2D_Arrays\2DArrays\2DArrays\obj\Debug\net5.0\2DArrays.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documenten\School\Github\ExercisesThomasMore\2019_2020\06_2D_Arrays\2DArrays\2DArrays\obj\Debug\net5.0\2DArrays.AssemblyInfoInputs.cache
+D:\Documenten\School\Github\ExercisesThomasMore\2019_2020\06_2D_Arrays\2DArrays\2DArrays\obj\Debug\net5.0\2DArrays.AssemblyInfo.cs
+D:\Documenten\School\Github\ExercisesThomasMore\2019_2020\06_2D_Arrays\2DArrays\2DArrays\obj\Debug\net5.0\2DArrays.csproj.CoreCompileInputs.cache
+D:\Documenten\School\Github\ExercisesThomasMore\2019_2020\06_2D_Arrays\2DArrays\2DArrays\obj\Debug\net5.0\2DArrays.dll
+D:\Documenten\School\Github\ExercisesThomasMore\2019_2020\06_2D_Arrays\2DArrays\2DArrays\obj\Debug\net5.0\ref\2DArrays.dll
+D:\Documenten\School\Github\ExercisesThomasMore\2019_2020\06_2D_Arrays\2DArrays\2DArrays\obj\Debug\net5.0\2DArrays.pdb
+D:\Documenten\School\Github\ExercisesThomasMore\2019_2020\06_2D_Arrays\2DArrays\2DArrays\obj\Debug\net5.0\2DArrays.genruntimeconfig.cache

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "jOSGWZ/F+jSj7WkqBRQHli2z9vSg4VEspfTdKGHo6+7qmW+1aMfST+Q3kiJ7QfTwt2Vbh2mWUAwJW7iEwhVozA==",
+  "success": true,
+  "projectFilePath": "D:\\Documenten\\School\\Github\\ExercisesThomasMore\\2019_2020\\06_2D_Arrays\\2DArrays\\2DArrays\\2DArrays.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Kevin\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.11\\microsoft.netcore.app.host.win-x64.5.0.11.nupkg.sha512"
+  ],
+  "logs": []
+}

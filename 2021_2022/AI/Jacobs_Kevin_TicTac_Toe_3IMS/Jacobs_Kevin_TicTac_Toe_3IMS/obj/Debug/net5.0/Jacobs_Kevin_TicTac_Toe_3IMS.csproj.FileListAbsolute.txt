@@ -28,3 +28,14 @@ D:\Documenten\School\Github\ExercisesThomasMore\2021_2022\AI\Jacobs_Kevin_TicTac
 D:\Documenten\School\Github\ExercisesThomasMore\2021_2022\AI\Jacobs_Kevin_TicTac_Toe_3IMS\Jacobs_Kevin_TicTac_Toe_3IMS\bin\Debug\net5.0\Uno.Xaml.dll
 D:\Documenten\School\Github\ExercisesThomasMore\2021_2022\AI\Jacobs_Kevin_TicTac_Toe_3IMS\Jacobs_Kevin_TicTac_Toe_3IMS\bin\Debug\net5.0\Uno.dll
 D:\Documenten\School\Github\ExercisesThomasMore\2021_2022\AI\Jacobs_Kevin_TicTac_Toe_3IMS\Jacobs_Kevin_TicTac_Toe_3IMS\obj\Debug\net5.0\Jacobs_Kevin_TicTac_Toe_3IMS.csproj.CopyComplete
+D:\Documenten\School\Github\ExercisesThomasMore\2021_2022\AI\Jacobs_Kevin_TicTac_Toe_3IMS\Jacobs_Kevin_TicTac_Toe_3IMS\bin\Debug\net5.0\Microsoft.Win32.SystemEvents.dll
+D:\Documenten\School\Github\ExercisesThomasMore\2021_2022\AI\Jacobs_Kevin_TicTac_Toe_3IMS\Jacobs_Kevin_TicTac_Toe_3IMS\bin\Debug\net5.0\System.Drawing.Common.dll
+D:\Documenten\School\Github\ExercisesThomasMore\2021_2022\AI\Jacobs_Kevin_TicTac_Toe_3IMS\Jacobs_Kevin_TicTac_Toe_3IMS\bin\Debug\net5.0\System.Windows.Extensions.dll
+D:\Documenten\School\Github\ExercisesThomasMore\2021_2022\AI\Jacobs_Kevin_TicTac_Toe_3IMS\Jacobs_Kevin_TicTac_Toe_3IMS\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+D:\Documenten\School\Github\ExercisesThomasMore\2021_2022\AI\Jacobs_Kevin_TicTac_Toe_3IMS\Jacobs_Kevin_TicTac_Toe_3IMS\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.1\System.Drawing.Common.dll
+D:\Documenten\School\Github\ExercisesThomasMore\2021_2022\AI\Jacobs_Kevin_TicTac_Toe_3IMS\Jacobs_Kevin_TicTac_Toe_3IMS\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\System.Drawing.Common.dll
+D:\Documenten\School\Github\ExercisesThomasMore\2021_2022\AI\Jacobs_Kevin_TicTac_Toe_3IMS\Jacobs_Kevin_TicTac_Toe_3IMS\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.1\System.Windows.Extensions.dll
+D:\Documenten\School\Github\ExercisesThomasMore\2021_2022\AI\Jacobs_Kevin_TicTac_Toe_3IMS\Jacobs_Kevin_TicTac_Toe_3IMS\bin\Debug\net5.0\AxInterop.WMPLib.dll
+D:\Documenten\School\Github\ExercisesThomasMore\2021_2022\AI\Jacobs_Kevin_TicTac_Toe_3IMS\Jacobs_Kevin_TicTac_Toe_3IMS\bin\Debug\net5.0\Interop.WMPLib.dll
+D:\Documenten\School\Github\ExercisesThomasMore\2021_2022\AI\Jacobs_Kevin_TicTac_Toe_3IMS\Jacobs_Kevin_TicTac_Toe_3IMS\obj\Debug\net5.0\Interop.WMPLib.dll
+D:\Documenten\School\Github\ExercisesThomasMore\2021_2022\AI\Jacobs_Kevin_TicTac_Toe_3IMS\Jacobs_Kevin_TicTac_Toe_3IMS\obj\Debug\net5.0\Jacobs_Kevin_TicTac_Toe_3IMS.csproj.ResolveComReference.cache

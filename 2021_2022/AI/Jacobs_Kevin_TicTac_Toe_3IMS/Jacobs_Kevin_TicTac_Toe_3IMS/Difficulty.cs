@@ -9,14 +9,114 @@ namespace Jacobs_Kevin_TicTac_Toe_3IMS
     enum Algorithm
     {
         MinMax,
-        Rand
+        Rand,
+        KNN
     }
     internal class Difficulty
     {
+
         public Difficulty()
         {
             m_algo = Algorithm.MinMax;
         }
+        #region KNN (2 Public 2 Private
+        public void ReadFile(string filename)
+        {
+            foreach (var elem in System.IO.File.ReadLines(filename))
+            {
+                string[] el = elem.Split(' ');
+                Data d = new Data(Convert.ToInt32(el[el.Length-1]));
+                for (int i = 0; i < el.Length-2; i++)
+                {
+                    d.dataSet.Add(Convert.ToInt32(el[i]));
+                }
+                m_SampleData.Add(d);
+            }
+        }
+        public int KNN(char[] arr)
+        {
+
+            int[] ari = CreateIntArray(arr);
+            List<int> available = new List<int>();
+            foreach (int elem in ari)
+            {
+                
+                available.Add(elem);
+                
+            }
+            double max = int.MaxValue;
+            int move = 0;
+            foreach (Data elem in m_SampleData)
+            {
+                double score = Distance(ari,elem.dataSet.ToArray());
+                if (score > max && available[elem.pos] == 0)
+                {
+                    max = score;
+  
+                    move = elem.pos;
+                }
+            }
+            return move;
+        }
+        private double Distance(int[] current, int[] data)
+        {
+            if (current.Length != data.Length)
+            {
+                return double.MaxValue;
+            }
+            double d = 0;
+
+            for (int i = 0; i < current.Length; i++)
+            {
+                
+                d += Math.Pow(Convert.ToDouble(current[i]) - Convert.ToDouble(data[i]), 2);
+            }
+            return Math.Sqrt(d);
+        }
+        private int[] CreateIntArray(char [] arr)
+        {
+            int[] ari = new int[arr.Length];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == 'X')
+                {
+                    ari[i] = -1;
+                }
+                else if (arr[i] == 'O')
+                {
+                    ari[i] = 1;
+                }
+                else
+                {
+                    ari[i] = 0;
+                }
+
+            }
+            return ari;
+        }
+        #endregion
+        #region (1 Public 1 Private
+        public int Random(char[] arr)
+        {
+            Random r = new Random();
+            int rand = r.Next(0, 8);
+            while (!IsAvailable(rand, arr))
+            {
+                rand = r.Next(0, 8);
+            }
+
+            return rand;
+        }
+        private bool IsAvailable(int p, char[] ar)
+        {
+            if (ar[p] == 'X' || ar[p] == 'O')
+            {
+                return false;
+            }
+            return true;
+        }
+        #endregion
+        #region MiniMax
         public int BestMove(char[] arrField)
         {
             char[,] ar = new char[,] { { arrField[0], arrField[1], arrField[2] }, { arrField[3], arrField[4], arrField[5] }, { arrField[6], arrField[7], arrField[8] } };
@@ -152,6 +252,10 @@ namespace Jacobs_Kevin_TicTac_Toe_3IMS
                 return bestScore;
             }
         }
+        #endregion
+
+        //Variables
+        private List<Data> m_SampleData = new List<Data>(); 
         public Algorithm m_algo;
     }
 }

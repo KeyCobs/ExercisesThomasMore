@@ -1,78 +1,75 @@
 ﻿using System;
 using System.Timers;
 using System.Threading;
-
+using System.Media;
+//using System.Windows.Media;
+using Windows.Media.Playback;
+using System.IO;
+ 
 
 namespace Jacobs_Kevin_TicTac_Toe_3IMS
 {
     internal class Program
     {
+        static public WMPLib.WindowsMediaPlayer g_Player = new WMPLib.WindowsMediaPlayer();
 
         static void Main(string[] args)
         {
-
             //Variables
             int width = 80;
             int height = 25;
             Game gameState = new Game(height,width);
             //Init
             ChangeConsoleSize(width,height);
-            gameState.m_CurrentState = GameState.Game;
+            gameState.m_CurrentState = GameState.Menue;
             Run(width, height, gameState);
 
-            //Game.DrawBoard(51);
-             char[,] assr = new char[width, height];
-//            for (int i = 0; i < 25; i++)
-//            {
-//                for (int j = 0; j < 80; j++)
-//                {
-//                    Console.Write("x");
-//                }
-//                Console.WriteLine();
-//            }
-            
-        }
+      
+         }
         static private void Run(int width, int height, Game gameState)
         {
+            g_Player.URL = "data/LetItSnow.mp3";
+            //call our intro and music 
+            gameState.DrawIntro(); 
+
+            g_Player.controls.play();
            ConsoleKey key = new ConsoleKey();
             while(gameState.m_CurrentState != GameState.Exit)
             {
-                Thread.Sleep(1000);
                 //Waiting for input
-                while (key != ConsoleKey.Escape)
+                while (gameState.m_CurrentState != GameState.Exit)
                 {
-                    //Checking input
-                    
-                        gameState.Draw();
+                    gameState.Draw();
+                    if (gameState.m_CurrentState != GameState.Exit)
+                    {
                         key = Console.ReadKey(true).Key;
+                    }
+
                     switch (gameState.m_CurrentState)
                     {
                         case GameState.Menue:
                             Navigate(gameState, key);
                             break;
                         case GameState.Game:
-                            Controls(key,gameState);
+                            ControlsGame(key,gameState);
                             break;
                         case GameState.Options:
                             Navigate(gameState, key);
                             break;
                         case GameState.Difficult:
-                            Navigate(gameState, key);
+                            Navigate(gameState, key); 
+                            break;
+                        case GameState.Winner:
+                            ChangeWindow(gameState, key);
                             break;
                         default:
                             break;
                     }
-                    
-                    //Animation
                 }
-                
-
-                //Draw
-                    //Console.WriteLine("new loop");
-                //Update
             }
+            Final(gameState);
         }
-        static private void Controls(ConsoleKey k, Game gs)
+        static private void ControlsGame(ConsoleKey k, Game gs)
         {
             switch (k)
             {
@@ -135,10 +132,15 @@ namespace Jacobs_Kevin_TicTac_Toe_3IMS
                 case ConsoleKey.M:
                     gs.m_CurrentState = GameState.Menue;
                     break;
+                case ConsoleKey.S:
+                    WMPLib.WindowsMediaPlayer eas = new WMPLib.WindowsMediaPlayer();
+                    eas.URL = "data/santa.mp3";
+                    eas.controls.play();
+                    break;
 
             }
         }
-        static private void ChangeWindow(Game gs)
+        static private void ChangeWindow(Game gs, ConsoleKey key = 0)
         {
             switch (gs.m_CurrentState)
             {
@@ -150,19 +152,87 @@ namespace Jacobs_Kevin_TicTac_Toe_3IMS
                     else if (gs.m_Option == 1)
                     {
                         gs.m_CurrentState = GameState.Difficult;
+                        gs.m_Option = 0;
                     }
                     else if (gs.m_Option == 2)
                     {
                         gs.m_CurrentState = GameState.Options;
+                        gs.m_Option = 0;
+                    }
+                    else if (gs.m_Option == 3)
+                    {
+                        gs.m_CurrentState = GameState.Exit;
                     }
                     break;
-                case GameState.Game:
-                    break;
                 case GameState.Options:
+                    if (gs.m_Option == 0)
+                    {
+                        //Mute
+                        if (g_Player.settings.mute)
+                        {
+                            g_Player.settings.mute = false;
+                        }
+                        else
+                        {
+                        g_Player.settings.mute = true;
+                        }
+                    }
+                    else if (gs.m_Option == 1)
+                    {
+                        //low Vol
+                        g_Player.settings.volume -= 10;
+                    }
+                    else if (gs.m_Option == 2)
+                    {
+                        //High Vol
+                        g_Player.settings.volume += 10;
+                    }
+                    else if (gs.m_Option == 3) 
+                    {
+                        //Play
+                        g_Player.controls.play();
+                    }
+                    else if (gs.m_Option == 4)
+                    {
+                        //Stop
+                        g_Player.controls.stop();
+                    }
+                    else if (gs.m_Option == 5)
+                    {
+                        //Back
+                        gs.m_CurrentState = GameState.Menue;
+                        gs.m_Option = 0; 
+                    }
                     break;
                 case GameState.Difficult:
-                    break;
-                case GameState.Exit:
+                    if (gs.m_Option == 0)
+                    {
+                        gs.m_Bot.m_algo = Algorithm.MinMax;
+                    }
+                    else if (gs.m_Option == 1)
+                    {
+                        gs.m_Bot.m_algo = Algorithm.Rand;
+                    }
+                    else if (gs.m_Option == 2)
+                    {
+                        gs.m_Bot.m_algo = Algorithm.KNN;
+                    }
+                    gs.m_Option = 0;
+                        gs.m_CurrentState = GameState.Menue;
+                    break; 
+                case GameState.Winner:
+                    if (key == ConsoleKey.R)
+                    {
+                        gs.m_CurrentState = GameState.Game;
+                    }
+                    else if (key == ConsoleKey.M)
+                    {
+                        gs.m_CurrentState = GameState.Menue;
+                    }
+                    else if (key == ConsoleKey.M)
+                    {
+                        gs.m_CurrentState = GameState.Exit;
+                    }
                     break;
                 default:
                     break;
@@ -174,5 +244,10 @@ namespace Jacobs_Kevin_TicTac_Toe_3IMS
             Console.SetWindowPosition(0, 0);
             
         }
+        static private void Final(Game gs)
+        {
+            gs.DrawOutro();
+        }
+
     }
 }

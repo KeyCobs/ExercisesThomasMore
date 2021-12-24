@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
  
 
@@ -15,9 +16,7 @@ namespace Jacobs_Kevin_TicTac_Toe_3IMS
             Options,
             Difficult,
             Exit,
-            Winner//,
-            //Snake, EasterEggs
-            
+            Winner
         }
     internal class Game
     {
@@ -28,12 +27,16 @@ namespace Jacobs_Kevin_TicTac_Toe_3IMS
             m_Field = new char[height,width];
             m_Option = 0;
             m_Bot = new Difficulty();
+            m_Bot.ReadFile("data/tictac_single.txt");
             ClearField();
             ClearNumbers(); 
 
         }
+
+        #region Clearing (5 Private)
         private void ClearField()
         {
+            //Make sure the field is reset
             for (int i = 0; i < m_Height; i++)
             {
                 for (int j = 0; j < m_Width; j++)
@@ -43,18 +46,129 @@ namespace Jacobs_Kevin_TicTac_Toe_3IMS
                 
                 }
                 m_Field[i, m_Width - 1] = '\n';
-            }
 
+            }
+            CreateTree();
+        }
+        private void CreateTree()
+        {
+            //I lied it's more then a tree
+            string[] tree = new string[10];
+            string[] Crans = new string[17];
+            string[] Santa = new string[18];
+            #region ASCII
+            //I know don't judge me :p
+            tree[0] = @"      /\      ";
+            tree[1] = @"     /\*\     ";
+            tree[2] = @"    /\O\*\    ";
+            tree[3] = @"   /*/\/\/\   ";
+            tree[4] = @"  /\O\/\*\/\  ";
+            tree[5] = @" /\*\/\*\/\/\ ";
+            tree[6] = @"/\O\/\/*/\/O/\";
+            tree[7] = "      ||";
+            tree[8] = "      ||";
+            tree[9] = "      ||";
+
+
+            Santa[0] = "        i!!!!!!;,";
+            Santa[1] = "     .,; i!!!!!'`,uu,o$$bo.";
+            Santa[2] = "    !!!!!!!'.e$$$$$$$$$$$$$$.";
+            Santa[3] = "   !!!!!!! $$$$$$$$$$$$$$$$$P";
+            Santa[4] = "   !!!!!!!,`$$$$$$$$$$$    p";
+            Santa[5] = "!!!!!!!!!'P..,e$$$$$$$$   ?";
+            Santa[6] = "`!!!!!!!!z$'J$$$$$'.,$bd$b,";
+            Santa[7] = " `!!!!!!f;$'d$$$$$$$$$$$$$P',";
+            Santa[8] = "  !!!!!! $B,` ?$$$$$P',uggg$$$$";
+            Santa[9] = "  !!!!!!.$$$$be.  zd$$$P .,uooe";
+            Santa[10] = "  `!!!',$$$$$$$$$c,$$,ud$$$$$$$";
+            Santa[11] = "   !! $$$$$$$$$$$$$$$$$$$$$$$$$$";
+            Santa[12] = "   !'j$$$$$$$$$$$$$$$$$$$$$$$$$$";
+            Santa[13] = " d@@,?$$$$$$$$$$$$$$$$$$$$$$$$$$";
+            Santa[14] = " ?@@f:$$$$$$$$$$$$$$$$$$$$$$$$$";
+            Santa[15] = "      $$$$$$$$$$$$$$$$$$$$$$$$";
+            Santa[16] = "      `3$$$$$$$$$$$$$$$$$$$$$";
+            Santa[17] = "           $$$$$$P?$$$$$$$";
+
+            Crans[0] = @"        .----.";
+            Crans[1] = @"      .'`.  .'`.";
+            Crans[2] = @"     /-._:--:_.-\";
+            Crans[3] = @"    |-._/    \ _.|";
+            Crans[4] = @"    |._ |    |' _|";
+            Crans[5] = @"    `---'    |-' |";
+            Crans[6] = @"             |.-'|";
+            Crans[7] = @"             |_.-|";
+            Crans[8] = @"             | _.|";
+            Crans[9] = @"             |' _|";
+            Crans[10] = @"             |-' |";
+            Crans[11] = @"             |.-'|";
+            Crans[12] = @"             |_.-|";
+            Crans[13] = @"             | _.|";
+            Crans[14] = @"             |' _|";
+            Crans[15] = @"             |-' |";
+            Crans[16] = @"             `---'";
+            #endregion
+
+            if (m_CurrentState == GameState.Menue )
+            {
+                PrintImageRight(Santa);
+                PrintImageLeft(Crans);
+            }
+            if (m_CurrentState == GameState.Options || m_CurrentState == GameState.Difficult)
+            {
+                PrintImageLeft(tree);
+            }
+        }
+        private void PrintImageRight(string[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 0; j < arr[i].Length; j++)
+                {
+                    int width = m_Width / 2 + 7 + j;
+                    int heigh = (m_Height / 2) - (arr.Length / 2) + i;
+                    m_Field[heigh, width] = arr[i][j];
+                }
+            }
+        }
+        private void PrintImageLeft(string[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = 0; j < arr[i].Length; j++)
+                {
+                    int width = 3 + j;
+                    int heigh = (m_Height / 2) - (arr.Length / 2) + i;
+                    m_Field[heigh, width] = arr[i][j];
+                }
+            }
         }
         private void ClearNumbers()
         {
             m_FillInField = new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
         }
-        #region Update
+        #endregion
+        #region Update (1 Public 5 Private)
         public void Update(int input)
         {
             --input;
+            switch (m_Bot.m_algo)
+            {
+                case Algorithm.MinMax:
+                    MiniMax(input);
+                    break;
+                case Algorithm.Rand:
+                    Random(input);
+                    break;
+                case Algorithm.KNN:
+                    KNN(input);
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void KNN(int input)
+        {
             if (m_FillInField[input] == 'X' || m_FillInField[input] == 'O')
             {
                 return;
@@ -71,28 +185,38 @@ namespace Jacobs_Kevin_TicTac_Toe_3IMS
                         m_CurrentState = GameState.Winner;
                         return;
                     }
-
-                    int aiIndex = m_Bot.BestMove(m_FillInField);
-                    m_FillInField[aiIndex] = 'O';
-
+                    //check if available else 2nd closest
+                    m_FillInField[m_Bot.KNN(m_FillInField)] = 'O';
+                    m_Result = CheckWinner();
+                    if (m_Result != null)
+                    {
+                        //Change winningscope
+                        m_CurrentState = GameState.Winner;
+                        return;
+                    }
                 }
                 else
-                { 
+                {
                     m_FillInField[input] = 'X';
+                    m_Result = CheckWinner();
+                    if (m_Result != null)
+                    {
+                        //Change winningscope
+                        m_CurrentState = GameState.Winner;
+                        return;
+                    }
                 }
-                
             }
             else
             {
-            //See if you go first or bot
-            m_IsPicked = IsOrderPicked(input);
+                //See if you go first or bot
+                m_IsPicked = IsOrderPicked(input);
             }
 
             if (!m_IsPlayerFirst)
             {
                 //AI
-                int aiIndex = m_Bot.BestMove(m_FillInField);
-                m_FillInField[aiIndex] = 'O';
+                m_FillInField[m_Bot.KNN(m_FillInField)] = 'O';
                 m_Result = CheckWinner();
                 if (m_Result != null)
                 {
@@ -102,9 +226,66 @@ namespace Jacobs_Kevin_TicTac_Toe_3IMS
                 }
 
             }
-
         }
+        private void Random(int input)
+        {
+            if (m_FillInField[input] == 'X' || m_FillInField[input] == 'O')
+            {
+                return;
+            }
+            if (m_IsPicked)
+            {
+                if (m_IsPlayerFirst)
+                {
+                    m_FillInField[input] = 'X';
+                    m_Result = CheckWinner();
+                    if (m_Result != null)
+                    {
+                        //Change winningscope
+                        m_CurrentState = GameState.Winner;
+                        return;
+                    }
+                    m_FillInField[m_Bot.Random(m_FillInField)] = 'O';
+                    m_Result = CheckWinner();
+                    if (m_Result != null)
+                    {
+                        //Change winningscope
+                        m_CurrentState = GameState.Winner;
+                        return;
+                    }
+                }
+                else
+                {
+                    m_FillInField[input] = 'X';
+                    m_Result = CheckWinner();
+                    if (m_Result != null)
+                    {
+                        //Change winningscope
+                        m_CurrentState = GameState.Winner;
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                //See if you go first or bot
+                m_IsPicked = IsOrderPicked(input);
+            }
 
+            if (!m_IsPlayerFirst)
+            {
+                //AI
+                m_FillInField[m_Bot.Random(m_FillInField)] = 'O';
+                m_Result = CheckWinner();
+                if (m_Result != null)
+                {
+                    //Change winningscope
+                    m_CurrentState = GameState.Winner;
+                    return;
+                }
+
+            }
+        }
         private string CheckWinner()
         {
             char[,] ar = new char[,] { { m_FillInField[0], m_FillInField[1], m_FillInField[2] }, { m_FillInField[3], m_FillInField[4], m_FillInField[5] }, { m_FillInField[6], m_FillInField[7], m_FillInField[8] } }; // I know it's long but I got this far and got lazy to change this please don't kill me
@@ -146,7 +327,62 @@ namespace Jacobs_Kevin_TicTac_Toe_3IMS
 
             return "Tie";
         }
+        private void MiniMax(int input)
+        {
+            if (m_FillInField[input] == 'X' || m_FillInField[input] == 'O')
+            {
+                return;
+            }
+            if (m_IsPicked)
+            {
+                if (m_IsPlayerFirst)
+                {
+                    m_FillInField[input] = 'X';
+                    m_Result = CheckWinner();
+                    if (m_Result != null)
+                    {
+                        //Change winningscope
+                        m_CurrentState = GameState.Winner;
+                        return;
+                    }
 
+                    int aiIndex = m_Bot.BestMove(m_FillInField);
+                    m_FillInField[aiIndex] = 'O';
+                    m_Result = CheckWinner();
+                    if (m_Result != null)
+                    {
+                        //Change winningscope
+                        m_CurrentState = GameState.Winner;
+                        return;
+                    }
+                }
+                else
+                {
+                    m_FillInField[input] = 'X';
+                }
+
+            }
+            else
+            {
+                //See if you go first or bot
+                m_IsPicked = IsOrderPicked(input);
+            }
+
+            if (!m_IsPlayerFirst)
+            {
+                //AI
+                int aiIndex = m_Bot.BestMove(m_FillInField);
+                m_FillInField[aiIndex] = 'O';
+                m_Result = CheckWinner();
+                if (m_Result != null)
+                {
+                    //Change winningscope
+                    m_CurrentState = GameState.Winner;
+                    return;
+                }
+
+            }
+        }
         private bool IsOrderPicked(int inp)
         {
             Random r = new Random();
@@ -166,15 +402,14 @@ namespace Jacobs_Kevin_TicTac_Toe_3IMS
             return true;
         }
         #endregion
-        #region Draw
+        #region Draw (2 Publics 5 Private)
         public void Draw()
         {
+            //DrawMenue, DrawGame and DrawPickorder, etc,.. Can be combined in one function. It the same function with different values. But lack due time I put them sepperatly
             ClearField();
             Console.Clear();
             switch (m_CurrentState)
             {
-                case GameState.Intro:
-                    break;
                 case GameState.Menue:
                     DrawMenue();
                     break;
@@ -190,20 +425,127 @@ namespace Jacobs_Kevin_TicTac_Toe_3IMS
                     }
                     break;
                 case GameState.Options:
+                    DrawOptions();
                     break;
                 case GameState.Difficult:
-                    break;
-                case GameState.Exit:
+                    DrawDifficult();
                     break;
                 case GameState.Winner:
+                    if (m_Result == "Tie")
+                    {
+                        CalculateText("It's a Tie!", m_Height / 2);
+                    }
+                    else
+                    {
                     CalculateText( m_Result + " Is the winner!", m_Height/2);
+                    }
+                    CalculateText( "Press 'R' to restard and 'M' to go back to menue", m_Height/2 + 1);
+                    m_IsPicked = false;
+                    ClearNumbers();
                     break;
                 default:
                     break;
             }
 
+            //Print our field
             PrintField();
         }
+        public void DrawIntro()
+        {
+            Console.Clear();
+            string intro = "Game made by: Kevin ";
+            Console.SetCursorPosition(m_Width/2 - intro.Length/2,0);
+            for (int i = 1; i < m_Height/2; i++)
+            {
+                Console.SetCursorPosition(m_Width/2 - intro.Length/2,i);
+                Console.Write(intro);
+                Console.SetCursorPosition(m_Width / 2 - (intro.Length / 2), i-1);
+                Console.Write("                    ");
+                Thread.Sleep(200);
+            }
+            Thread.Sleep(3000);
+        }
+        public void DrawOutro()
+        {
+            Console.Clear();
+            string intro = "Thank you for playing! Hope you liked it! And thank you for all the classes!";
+            Console.SetCursorPosition(m_Width / 2 - intro.Length / 2, 0);
+            for (int i = 1; i < m_Height / 2; i++)
+            {
+                Console.SetCursorPosition(m_Width / 2 - intro.Length / 2, i);
+                Console.Write(intro);
+                Console.SetCursorPosition(m_Width / 2 - (intro.Length / 2), i - 1);
+                Console.Write("                                                                              ");
+                Thread.Sleep(300);
+            }
+            Thread.Sleep(3000);
+        }
+        private void DrawOptions()
+        {
+            string[] titles = { "Mute", "Lower Volume", "Higher Volume", "Play Music", "Stop Music", "Back" };
+            int c = -1*(titles.Length/2);// make negative
+            CheckOptionAboveOrBelowZero(titles.Length);
+            foreach (string elem in titles)
+            {
+                CalculateText(elem, (m_Height / 2) + ++c);
+            }
+            DrawArrow(titles[m_Option], m_Height / 2 - (titles.Length / 2) + 1);
+        }
+        private void DrawDifficult()
+        {
+            string[] options = { "MiniMax - Impossible", "Random - Lucky", "KNN - douable", "Back" };
+            CheckOptionAboveOrBelowZero(options.Length);
+            int counter = -1 * (options.Length / 2); 
+            foreach (string elem in options)
+            {
+                CalculateText(elem, (m_Height / 2) + ++counter);
+            }
+            DrawArrow(options[m_Option], ((m_Height / 2)  - (options.Length / 2) + 1));
+        }
+        private void DrawArrow(string w, int h)
+        {
+            int wLeng =(m_Width/2) - w.Length;
+            m_Field[m_Option + h, wLeng - 3] = '-';
+            m_Field[m_Option + h, wLeng - 2] = '>';
+        }
+        private void CalculateText(string w,int h)
+        {
+            int leng = w.Length;
+            for (int i = 0; i < leng; i++)
+            {
+                m_Field[h,((m_Width / 2) - (leng / 2)) + i] = w[i];
+            }
+        }
+        private void CheckOptionAboveOrBelowZero(int numberOfOptions)
+        {
+            if (numberOfOptions -1 < m_Option)
+            {
+                m_Option = 0;
+            }
+            else if (m_Option < 0)
+            {
+                m_Option = numberOfOptions -1;
+            }
+            
+        }
+        #region Menue
+        private void DrawMenue()
+        {
+            //variables
+            string[] title;
+            //CheckOptions
+            title = new string[4] { "Play", "Difficulty", "Options", "Exit" };
+            int counter = -1 * (title.Length / 2);
+            CheckOptionAboveOrBelowZero(title.Length);
+            //Fill Text
+            foreach (string elem in title)
+            {
+                CalculateText(elem, (m_Height /2) + ++counter);
+            }
+            DrawArrow(title[m_Option], (m_Height / 2) - (title.Length / 2) + 1);
+        }
+        #endregion
+        #region Game
         private void PrintField()
         {
 
@@ -215,21 +557,6 @@ namespace Jacobs_Kevin_TicTac_Toe_3IMS
                 }
             }
         }
-        private void DrawMenue()
-        {
-            //variables
-            string[] title;
-            int counter = -1;
-            //CheckOptions
-            title = new string[3] { "Play", "Difficulty", "Options" };
-            CheckOptionAboveOrBelowZero(title.Length);
-            //Fill Text
-            foreach (string elem in title)
-            {
-                CalculateText(elem, (m_Height /2) + counter++);
-            }
-            DrawArrow(title[m_Option], (m_Height / 2) - 1);
-        }
         private void DrawGame()
         {
             FillBoard();
@@ -240,12 +567,6 @@ namespace Jacobs_Kevin_TicTac_Toe_3IMS
             int h = m_Height / 2;
             string sentance = "Pick a number between 0-9 to see who goes first";
             CalculateText(sentance, h);
-        }
-        private void DrawArrow(string w, int h)
-        {
-            int wLeng =(m_Width/2) - w.Length;
-            m_Field[m_Option + h, wLeng - 3] = '-';
-            m_Field[m_Option + h, wLeng - 2] = '>';
         }
         private void NumberLoops()
         {
@@ -305,43 +626,25 @@ namespace Jacobs_Kevin_TicTac_Toe_3IMS
             name = "Press m to go back to menue";
             CalculateText(name, ++height);
         }
-        private void CalculateText(string w,int h)
-        {
-            int leng = w.Length;
-            for (int i = 0; i < leng; i++)
-            {
-                m_Field[h,((m_Width / 2) - (leng / 2)) + i] = w[i];
-            }
-        }
-        private void CheckOptionAboveOrBelowZero(int numberOfOptions)
-        {
-            if (numberOfOptions -1 < m_Option)
-            {
-                m_Option = 0;
-            }
-            else if (m_Option < 0)
-            {
-                m_Option = numberOfOptions -1;
-            }
-            
-        }
         #endregion
+        #endregion
+
         //Public
         public GameState m_CurrentState { get; set; }
-        public char[,] m_Field;
-        public int m_Option;
         public Difficulty m_Bot;
+        public int m_Option;
+        public char[,] m_Field;
         public bool m_IsPicked = false;
 
         //private
         //Bool
         private bool m_IsPlayerFirst = false;
-        private string m_Result;
         //int
         private int m_Width;
         private int m_Height;
         //Arrays
         private char[] m_FillInField;
+        private string m_Result;
 
     }
 }
